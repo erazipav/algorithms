@@ -236,9 +236,9 @@ int main () {
 
 	int sortedArray[20];
 
+        // heap sort with preserving original arary
 	HeapSortPreserve( someArray, sortedArray, 20 );
 
-	// heap sort with preserve
 	for ( int i = 0; i < 20; i++ ) 
 	  cout << sortedArray[i] << " ";
 	cout << endl;

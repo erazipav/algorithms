@@ -30,11 +30,14 @@ void IncreaseKey(){}
 void Delete(){}
 // ===================================================================
 
-// merges two tree of same order together
+// merges two tree of same order together, returns pointer to new root
+// add the tree with greater root key as most right son of other tree
 Node* MergeTree( Node * a, Node * b ){
 
-	Node * tmp;
+	Node * tmp;	// for saving left sibling pointer
+
 	if ( a->key <= b->key ){
+		// the most right son will now be the left son of 'a'
 		tmp = b->mostRight;
 		b -> mostRight = a;
 		(b->mostRight) -> leftSibling = tmp;
@@ -55,9 +58,6 @@ Node* MergeTree( Node * a, Node * b ){
 
 	return NULL;
 }
-// ===================================================================
-
-
 
 // ===================================================================
 // ===================================================================
