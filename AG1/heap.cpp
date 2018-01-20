@@ -2,7 +2,7 @@
 #include <cstdlib>
 
 /*  THIS IS A SIMPLE PROGRAM WITH IMPLEMENTED 'BINARY MIN HEAP' AND 
-    BINARY MIN HEAP BASE HEAPSORT
+    BINARY MIN HEAP BASED HEAPSORT
 */
 
 using namespace std;
@@ -10,7 +10,7 @@ using namespace std;
 
 // ===================================================================
 
-					/* PRINT HEAP */
+		/* PRINT HEAP */
 
 // use for debugging purposes
 void printHeap ( int * H, int size ) {
@@ -21,7 +21,7 @@ void printHeap ( int * H, int size ) {
 
 // ===================================================================
 
-					/* BUBBLE DOWN */
+		/* BUBBLE DOWN */
 
 // compares element with it's sons - if there are any, selects lowest
 // lower son, swaps key values and continues until sons are greater
@@ -72,7 +72,7 @@ void bubbleDown( int * H, int from, int max){
 
 // ===================================================================
 
-					/* BUBBLE UP */
+		/* BUBBLE UP */
 
 // H ... heap to bubble in, index ... of an element
 // for algorithm to work, indexes must be numbered from 1,2 ... n
@@ -101,7 +101,7 @@ void bubbleUp (int * H, int index) {
 }
 // ===================================================================
 
-					/* HEAP INSERT */
+		/* HEAP INSERT */
 
 // inserts an element with key "key" into heap
 // inserts on last available position and then bubles up 
@@ -118,7 +118,7 @@ void heapInsert ( int * H, int key, int * count) {
 
 // ===================================================================
 
-					/* HEAP BUILD */
+		/* HEAP BUILD */
 
 // builds a heap from unsorted array in "O(n)"
 
@@ -132,7 +132,7 @@ void heapBuild ( int * array, int size ) {
 
 // ===================================================================
 
-					/* FIND MIN */
+		/* FIND MIN */
 
 // return lowest element in heap
 
@@ -142,7 +142,7 @@ int findMin ( int * H ) {
 
 // ===================================================================
 
-					/* EXTRACT MIN */
+		/* EXTRACT MIN */
 
 // extracts lowest value from heap and re-adjusts heap ordering
 
@@ -157,7 +157,7 @@ int extractMin (int * H, int * count) {
 }
 // ===================================================================
 
-			 		/* HEAP SORT */
+		/* HEAP SORT */
 
 // sorting algorithm based on min binary heap
 // builds a heap of an "unsorted" array, then extracts all elements
@@ -174,20 +174,20 @@ void HeapSort ( int * unsorted, int * sorted, int size) {
 }
 // ===================================================================
 
-					/* HEAP SORT - with preservation */
+		/* HEAP SORT - with preservation */
 
 // same as heap sort, only creates extra array to preserve original one
 
-void HeapSortPreserve ( int * unsorted, int * sorted, int size) {
+void HeapSortPreserve ( int * unsorted, int * sorted, int size ) {
 
 	int * tmp = new int [size];
 	for ( int i = 0; i < size; i++ )
 		tmp[i] = unsorted[i];
 
-	heapBuild (tmp, size);
+	heapBuild ( tmp, size );
 	int remaining = size;
 	for ( int i = 0; i < size; i++ ){
-		sorted[i] = extractMin (tmp, &remaining);
+		sorted[i] = extractMin ( tmp, &remaining );
 	}
 	delete [] tmp;
 
@@ -236,10 +236,11 @@ int main () {
 
 	int sortedArray[20];
 
-	HeapSortPreserve(someArray, sortedArray, 20);
+	HeapSortPreserve( someArray, sortedArray, 20 );
 
 	// heap sort with preserve
-	for ( int i = 0; i < 20; i++) cout << sortedArray[i] << " ";
+	for ( int i = 0; i < 20; i++ ) 
+	  cout << sortedArray[i] << " ";
 	cout << endl;
 
 }
